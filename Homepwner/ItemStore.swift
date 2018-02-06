@@ -13,7 +13,7 @@ class ItemStore {
     var splitItems = [[Item](), [Item]()]
     
     init() {
-        for _ in 0..<10 {
+        for _ in 0..<8 {
             createItem()
         }
     }

@@ -22,6 +22,7 @@ class ItemsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
         if section == 0 {
             return "More than $50"
         } else if section == 1 {
@@ -40,7 +41,7 @@ class ItemsViewController: UITableViewController {
         
         if indexPath.row < itemStore.splitItems[indexPath.section].count {
             let item = itemStore.splitItems[indexPath.section][indexPath.row]
-            
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
             cell.textLabel?.text = item.name
             cell.detailTextLabel?.text = "$\(item.valueInDollars)"
             
@@ -48,7 +49,10 @@ class ItemsViewController: UITableViewController {
             cell.textLabel?.text = "No more items"
             cell.detailTextLabel?.text = ""
         }
-       
+        
+        cell.textLabel?.backgroundColor = UIColor.white.withAlphaComponent(0.3)
+        cell.detailTextLabel?.backgroundColor = UIColor.white.withAlphaComponent(0.3)
+        cell.backgroundColor = UIColor.white.withAlphaComponent(0.3)
         return cell
     }
     
@@ -59,7 +63,7 @@ class ItemsViewController: UITableViewController {
         return tableView.rowHeight
     }
     
-    override func tab
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +72,9 @@ class ItemsViewController: UITableViewController {
         let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
+        
+        
+        tableView.backgroundView = UIImageView(image: UIImage(named: "space.jpg"))
     }
     
     
